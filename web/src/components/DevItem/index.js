@@ -6,7 +6,7 @@ import './styles.css'
 function Devitem({ dev }){
 
   const handleRemove = async dev => {
-    const response = await api.delete('/deleteDev', {data:{github_username:dev}})
+    await api.delete('/deleteDev', {data:{github_username:dev}})
   }
 
   return (
@@ -23,8 +23,7 @@ function Devitem({ dev }){
       </header>
       <p>{dev.bio}</p>
       <a 
-        href={`https://github.com/${dev.github_username}`} 
-        target="_blank"
+        href={`https://github.com/${dev.github_username}`}
       >Acessar perfil no Github</a>
     </li>
   )

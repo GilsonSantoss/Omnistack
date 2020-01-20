@@ -1,1 +1,19 @@
-{ image: { file: .gitpod.Dockerfile } }
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: web yarn
+    command: web yarn start
+  - init: backend yarn
+    command: backend yarn dev
+
+github:
+  prebuilds:
+    addCheck: true
+
+ports:
+  - port: 8080
+  - port: 3000
+    onOpen: ignore
+  - port: 3333
+    onOpen: ignore
